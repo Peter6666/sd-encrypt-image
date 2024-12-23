@@ -93,13 +93,13 @@ def app_started_callback(_: Blocks, app: FastAPI):
         app.build_middleware_stack()  # rebuild middleware stack on-the-fly
     
 
-if PILImage.Image.__name__ != 'EncryptedImage':
+if PILImage.Image.__name__ != 'EncImage':
     super_open = PILImage.open
     super_encode_pil_to_base64 = api.encode_pil_to_base64
     super_modules_images_save_image = images.save_image
     super_api_middleware = api.api_middleware
     class EncryptedImage(PILImage.Image):
-        __name__ = "EncryptedImage"
+        __name__ = "EncImage"
         
         @staticmethod
         def from_image(image:PILImage.Image):
