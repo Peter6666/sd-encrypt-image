@@ -118,7 +118,7 @@ if PILImage.Image.__name__ != 'EncryptedImage':
                 if image.palette:
                     img.palette = image.palette.copy()
                 else:
-                    img.palette = ImagePalette.ImagePalette()
+                    img.palette = ImagePalette.ImagePalette(mode='RGBA')
             img.info = image.info.copy()
             return img
             
